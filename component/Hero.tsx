@@ -9,6 +9,7 @@ import {
   createIcon,
   Flex,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import * as React from "react";
 
 interface IHeroProps {
@@ -65,10 +66,10 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
                   bg: "blue.700",
                 }}
               >
-                Donate Now
+                <Link href={"/donate"}>Donate Now</Link>
               </Button>
               <Button variant={"link"} color={"whiteAlpha.900"} size={"sm"}>
-                Learn more about us
+                <Link href={"/about"}>Learn more about us</Link>
               </Button>
               <Box>
                 <Icon

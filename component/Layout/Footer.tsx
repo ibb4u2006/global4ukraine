@@ -67,6 +67,54 @@ export default function SmallCentered() {
           <Link href={"/donate"}>Donate</Link>
         </Stack>
       </Container>
+      <Container
+        as={Stack}
+        maxW={"6xl"}
+        py={4}
+        direction={{ base: "column", md: "row" }}
+        spacing={4}
+        justify={{ base: "center", md: "space-between" }}
+        align={{ base: "center", md: "center" }}
+      >
+        <Stack direction={["column", "column", "column", "row"]} spacing={14}>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Address
+            </Heading>
+            Nebušicka 6
+          </Box>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Tel (EN)
+            </Heading>
+            +420 739315551 🇺🇸
+          </Box>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Tel (CZ)
+            </Heading>
+            +420 737 416 831 🇨🇿
+          </Box>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Tel (UKR)
+            </Heading>
+            +420 608 239 354 🇺🇦
+          </Box>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Email
+            </Heading>
+            info@globalpreschool.cz
+          </Box>
+          <Box>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Website
+            </Heading>
+            www.globalpreschool.cz
+          </Box>
+        </Stack>
+      </Container>
 
       <Box
         borderTopWidth={1}
