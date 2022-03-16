@@ -35,7 +35,7 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
         opacity: 0.6,
       }}
     >
-      <Flex py={10}>
+      <Flex py={20}>
         <Container maxW={"3xl"} zIndex={1}>
           <Stack as={Box} textAlign={"center"} spacing={8}>
             <Heading

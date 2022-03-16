@@ -11,7 +11,7 @@ const Logo: React.FunctionComponent<ILogoProps> = (props) => {
   return (
     <Box {...props} cursor={"pointer"}>
       <Link href={"/"}>
-        <Heading color={"white"}>Global for Ukraine</Heading>
+        <Heading color={"white"}>Global For Ukraine</Heading>
       </Link>
     </Box>
   );
