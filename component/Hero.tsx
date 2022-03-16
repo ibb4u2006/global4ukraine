@@ -85,8 +85,8 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
                   fontSize={"lg"}
                   fontFamily={"Caveat"}
                   position={"absolute"}
-                  right={"-180px"}
-                  top={"-15px"}
+                  right={["-105px", "-145px", "-180px"]}
+                  top={["-25px", "-26px", "-15px"]}
                   transform={"rotate(10deg)"}
                   color={"white"}
                 >
