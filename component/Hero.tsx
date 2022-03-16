@@ -74,19 +74,21 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
               <Box>
                 <Icon
                   as={Arrow}
-                  color={"black"}
+                  color={"white"}
                   w={71}
                   position={"absolute"}
-                  right={-71}
+                  right={-66}
                   top={"10px"}
+                  transform={"rotateY(180deg) rotate(30deg)"}
                 />
                 <Text
                   fontSize={"lg"}
                   fontFamily={"Caveat"}
                   position={"absolute"}
-                  right={"-125px"}
+                  right={"-180px"}
                   top={"-15px"}
                   transform={"rotate(10deg)"}
+                  color={"white"}
                 >
                   To Ukraine's Children
                 </Text>

@@ -8,6 +8,8 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { ReactNode } from "react";
@@ -76,44 +78,44 @@ export default function SmallCentered() {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Stack direction={["column", "column", "column", "row"]} spacing={14}>
-          <Box>
+        <Wrap spacing={[6, 16, 14]} justify="center">
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Address
             </Heading>
-            Nebušicka 6
-          </Box>
-          <Box>
+            <Text fontSize="md">Nebušicka 6</Text>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (EN)
             </Heading>
-            +420 739315551 🇺🇸
-          </Box>
-          <Box>
+            <Text fontSize="md">+420 739315551 🇺🇸</Text>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (CZ)
             </Heading>
-            +420 737 416 831 🇨🇿
-          </Box>
-          <Box>
+            <Text fontSize="md">+420 737 416 831 🇨🇿</Text>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (UKR)
             </Heading>
-            +420 608 239 354 🇺🇦
-          </Box>
-          <Box>
+            <Text fontSize="md">+420 608 239 354 🇺🇦</Text>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Email
             </Heading>
-            info@globalpreschool.cz
-          </Box>
-          <Box>
+            <Text fontSize="md">info@globalpreschool.cz</Text>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Website
             </Heading>
-            www.globalpreschool.cz
-          </Box>
-        </Stack>
+            <Text fontSize="md">www.globalpreschool.cz</Text>
+          </WrapItem>
+        </Wrap>
       </Container>
 
       <Box
