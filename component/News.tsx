@@ -13,6 +13,8 @@ import {
   SpaceProps,
   Container,
   useColorModeValue,
+  Stack,
+  Button,
 } from "@chakra-ui/react";
 
 interface INewsTags {
@@ -30,6 +32,7 @@ interface NewsItemProps {
 
 interface INewsList {
   data: [];
+  newsBtn?: boolean;
 }
 const NewsItem: React.FC<NewsItemProps> = ({
   src,
@@ -99,7 +102,7 @@ const NewsTags: React.FC<INewsTags> = (props) => {
   );
 };
 
-const NewsList: React.FC<INewsList> = ({ data }) => {
+const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
   return (
     <Container maxW={"7xl"} p="12">
       <Heading as="h1" marginTop="5">
@@ -121,6 +124,21 @@ const NewsList: React.FC<INewsList> = ({ data }) => {
           );
         })}
       </Wrap>
+      {newsBtn && (
+        <Stack direction={"row"} p={20} justify={"center"}>
+          <Button
+            colorScheme={"blue"}
+            size={"lg"}
+            bg={"primary"}
+            rounded={"full"}
+            _hover={{
+              bg: "blue.700",
+            }}
+          >
+            <Link href={"/news"}>More News</Link>
+          </Button>
+        </Stack>
+      )}
     </Container>
   );
 };

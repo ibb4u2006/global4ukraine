@@ -9,9 +9,12 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  Box,
+  Button,
 } from "@chakra-ui/react";
 import { IoAnalytics, IoHome, IoPeople } from "react-icons/io5";
 import { ReactElement } from "react";
+import Link from "next/link";
 
 interface ChallengesProps {
   text: string;
@@ -37,7 +40,23 @@ const Challenges = ({ text, icon, iconBg }: ChallengesProps) => {
   );
 };
 
-export default function SplitWithImage() {
+interface ISplitWithImage {
+  title: string;
+  subTitle: string;
+  image: string;
+  description: string;
+  lists?: boolean;
+  aboutBtn?: boolean;
+}
+
+const SplitWithImage: React.FC<ISplitWithImage> = ({
+  title,
+  subTitle,
+  image,
+  description,
+  lists,
+  aboutBtn,
+}) => {
   return (
     <Flex bg={"lightGrey"}>
       <Container maxW={"5xl"} py={20}>
@@ -53,54 +72,67 @@ export default function SplitWithImage() {
               alignSelf={"flex-start"}
               rounded={"md"}
             >
-              Challenges
+              {subTitle}
             </Text>
-            <Heading>
-              What are the challenges for children growing up in conflict in
-              Ukraine?
-            </Heading>
+            <Heading>{title}</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
-              Many children in Ukraine have already witnessed or experienced
-              acts of violence over eight years of conflict.
+              {description}
             </Text>
-            <Stack
-              spacing={4}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue("gray.100", "gray.700")}
+            {lists && (
+              <Stack
+                spacing={4}
+                divider={
+                  <StackDivider
+                    borderColor={useColorModeValue("gray.100", "gray.700")}
+                  />
+                }
+              >
+                <Challenges
+                  icon={<Icon as={IoHome} color={"yellow.500"} w={5} h={5} />}
+                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  text={
+                    "At least 1.5 million people has been forced from their homes"
+                  }
                 />
-              }
-            >
-              <Challenges
-                icon={<Icon as={IoHome} color={"yellow.500"} w={5} h={5} />}
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={
-                  "At least 1.5 million people has been forced from their homes"
-                }
-              />
-              <Challenges
-                icon={<Icon as={IoPeople} color={"green.500"} w={5} h={5} />}
-                iconBg={useColorModeValue("green.100", "green.900")}
-                text={
-                  "Over 400,000 children currently live in the conflict zone"
-                }
-              />
-              <Challenges
-                icon={
-                  <Icon as={IoAnalytics} color={"purple.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("purple.100", "purple.900")}
-                text={
-                  "Child poverty rates are up more than 57% in some regions of Ukraine"
-                }
-              />
-            </Stack>
+                <Challenges
+                  icon={<Icon as={IoPeople} color={"green.500"} w={5} h={5} />}
+                  iconBg={useColorModeValue("green.100", "green.900")}
+                  text={
+                    "Over 400,000 children currently live in the conflict zone"
+                  }
+                />
+                <Challenges
+                  icon={
+                    <Icon as={IoAnalytics} color={"purple.500"} w={5} h={5} />
+                  }
+                  iconBg={useColorModeValue("purple.100", "purple.900")}
+                  text={
+                    "Child poverty rates are up more than 57% in some regions of Ukraine"
+                  }
+                />
+              </Stack>
+            )}
+            {aboutBtn && (
+              <Stack direction={"row"}>
+                <Button
+                  colorScheme={"blue"}
+                  size={"lg"}
+                  bg={"primary"}
+                  rounded={"full"}
+                  _hover={{
+                    bg: "blue.700",
+                  }}
+                >
+                  <Link href={"/about"}>Learn more about us</Link>
+                </Button>
+              </Stack>
+            )}
           </Stack>
           <Flex>
             <Image
               rounded={"md"}
-              alt={"Challenges image"}
-              src={"../img/ukraine-child.jpg"}
+              alt={"Image"}
+              src={image}
               objectFit={"cover"}
             />
           </Flex>
@@ -108,4 +140,6 @@ export default function SplitWithImage() {
       </Container>
     </Flex>
   );
-}
+};
+
+export default SplitWithImage;

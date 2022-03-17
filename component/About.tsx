@@ -53,15 +53,16 @@ export default function GridListWithHeading() {
         <Heading fontSize={"3xl"}>About us</Heading>
         <Text color={"gray.600"} fontSize={"xl"}>
           We are a well established preschool in Prague, Czech Republic offering
-          an early childhood program for young children from Ukraine. Most Czech
+          early childhood learning for young children from Ukraine. Most Czech
           preschools are full and cannot meet the demand of mothers who are
           seeking to find work. We saw an urgent need in the community and
-          decided to step in.
+          decided to step in and help.
           <br />
-          <br /> We took the initiative with the help of some kind
-          establishments and individuals in tge Czech Republic and around the
-          world to help form a temporary preschool to help young children feel a
-          little bit normal in these not so normal times for them.
+          <br /> We took the initiative with the help of some institutions and
+          individuals in the Czech Republic and around the world. Our goal is to
+          create a preschool environment, just like Global Concepts, to let
+          these young children go to school and feel a normal, especially, in
+          these not so normal times.
           <br />
           <br /> Classes will be led by Ukrainian preschool teachers that fled
           the war along with English clubs run by our own Global Preschool
