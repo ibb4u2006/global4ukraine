@@ -24,7 +24,7 @@ const Home: NextPage<IHomeProps> = ({ homeNewsList }) => {
         description="Ages 3-6 years "
       />
       <SplitWithImage />
-      <WithSpeechBubbles />
+      {/* <WithSpeechBubbles /> */}
       <NewsList data={homeNewsList} />
     </>
   );
