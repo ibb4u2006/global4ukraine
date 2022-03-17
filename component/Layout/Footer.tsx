@@ -81,29 +81,40 @@ export default function SmallCentered() {
         py={4}
         direction={{ base: "column", md: "row" }}
         spacing={4}
-        justify={{ base: "center", md: "space-between" }}
-        align={{ base: "center", md: "center" }}
+        justify={"center"}
       >
         <Wrap spacing={[6, 16, 14]} justify="center">
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Open Hours
+            </Heading>
+            <Text fontSize="md">8-3 pm (Kids centre)</Text>
+            <br />
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Address
             </Heading>
-            <Text fontSize="md">Nebušicka 6</Text>
+            <Text fontSize="md">
+              Nebušická 75, <br />
+              Nebušice, <br />
+              164 00 Praha 6
+            </Text>
+            <br />
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Transport buses
+            </Heading>
+            <Text fontSize="md">312, 161</Text>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (EN)
             </Heading>
             <Text fontSize="md">+420 739315551 🇺🇸</Text>
-          </WrapItem>
-          <WrapItem flexDirection={"column"}>
+            <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (CZ)
             </Heading>
             <Text fontSize="md">+420 737 416 831 🇨🇿</Text>
-          </WrapItem>
-          <WrapItem flexDirection={"column"}>
+            <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Tel (UKR)
             </Heading>
@@ -120,8 +131,7 @@ export default function SmallCentered() {
             >
               info@globalpreschool.cz
             </Link>
-          </WrapItem>
-          <WrapItem flexDirection={"column"}>
+            <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Website
             </Heading>
