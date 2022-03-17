@@ -3,24 +3,26 @@ import {
   Heading,
   Container,
   Text,
-  Button,
   Stack,
-  Icon,
   createIcon,
   Flex,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import * as React from "react";
 
 interface IHeroProps {
   title: string;
   description: string;
+  heroImg?: string;
 }
 
-const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
+const Hero: React.FunctionComponent<IHeroProps> = ({
+  title,
+  description,
+  heroImg,
+}) => {
   return (
     <Box
-      bgImage={"./img/global4ukraine.jpg"}
+      bgImage={heroImg ? heroImg : "/img/global4ukraine.jpg"}
       bgRepeat={"no-repeat"}
       bgSize={"cover"}
       bgPosition={"center"}
@@ -31,8 +33,8 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
         top: 0,
         height: "100%",
         width: "100%",
-        bgColor: "black",
-        opacity: 0.6,
+        bgGradient:
+          "linear-gradient(180deg, rgba(1,112,185,0.5) 0%, rgba(251,191,5,0.4) 100%)",
       }}
     >
       <Flex py={20}>
@@ -49,51 +51,12 @@ const Hero: React.FunctionComponent<IHeroProps> = ({ title, description }) => {
             <Text fontSize="2xl" color={"whiteAlpha.900"}>
               {description}
             </Text>
-            <Stack
-              direction={"column"}
-              spacing={3}
-              align={"center"}
-              alignSelf={"center"}
-              position={"relative"}
+            <Heading
+              fontWeight={600}
+              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
             >
-              <Button
-                colorScheme={"blue"}
-                size={"lg"}
-                bg={"primary"}
-                rounded={"full"}
-                px={6}
-                _hover={{
-                  bg: "blue.700",
-                }}
-              >
-                <Link href={"/donate"}>Donate Now</Link>
-              </Button>
-              <Button variant={"link"} color={"whiteAlpha.900"} size={"sm"}>
-                <Link href={"/about"}>Learn more about us</Link>
-              </Button>
-              <Box>
-                <Icon
-                  as={Arrow}
-                  color={"white"}
-                  w={71}
-                  position={"absolute"}
-                  right={-66}
-                  top={"10px"}
-                  transform={"rotateY(180deg) rotate(30deg)"}
-                />
-                <Text
-                  fontSize={"lg"}
-                  fontFamily={"Caveat"}
-                  position={"absolute"}
-                  right={["-105px", "-145px", "-180px"]}
-                  top={["-25px", "-26px", "-15px"]}
-                  transform={"rotate(10deg)"}
-                  color={"white"}
-                >
-                  To Ukraine's Children
-                </Text>
-              </Box>
-            </Stack>
+              🇺🇦
+            </Heading>
           </Stack>
         </Container>
       </Flex>

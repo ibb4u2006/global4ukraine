@@ -9,7 +9,7 @@ const DonatePage: React.FunctionComponent<IDonatePageProps> = (props) => {
     <>
       <Hero
         title="How can you help"
-        description="Help contributing funds or supplies to our preschool for Ukrainian children so we can maintain the day to day expenses and increase capacity."
+        description="Help contribute funds or supplies to our preschool for Ukrainian children so that we can run the day to day expenses and increase capacity."
       />
       <DonateForm />
     </>

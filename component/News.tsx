@@ -20,14 +20,24 @@ interface INewsTags {
   marginTop?: SpaceProps["marginTop"];
 }
 
-interface BlogItemProps {
+interface NewsItemProps {
   src: string;
   tags: string[];
   heading: string;
+  slug: string;
   content: string;
 }
 
-const BlogItem: React.FC<BlogItemProps> = ({ src, tags, heading, content }) => {
+interface INewsList {
+  data: [];
+}
+const NewsItem: React.FC<NewsItemProps> = ({
+  src,
+  tags,
+  heading,
+  slug,
+  content,
+}) => {
   return (
     <WrapItem
       width={{ base: "100%", md: "45%", lg: "30%" }}
@@ -36,13 +46,18 @@ const BlogItem: React.FC<BlogItemProps> = ({ src, tags, heading, content }) => {
     >
       <Box w="100%">
         <Box borderRadius="lg" overflow="hidden">
-          <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
+          <Link
+            textDecoration="none"
+            _hover={{ textDecoration: "none" }}
+            href={`news/${slug}`}
+          >
             <Image
               transform="scale(1.0)"
               src={src}
               alt="some text"
-              objectFit="contain"
-              width="100%"
+              objectFit="cover"
+              width={"100%"}
+              height={"250px"}
               transition="0.3s ease-in-out"
               _hover={{
                 transform: "scale(1.05)",
@@ -53,7 +68,11 @@ const BlogItem: React.FC<BlogItemProps> = ({ src, tags, heading, content }) => {
         <Box p={5}>
           <NewsTags tags={tags} marginTop="3" />
           <Heading fontSize="xl" marginTop="2">
-            <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
+            <Link
+              textDecoration="none"
+              _hover={{ textDecoration: "none" }}
+              href={`news/${slug}`}
+            >
               {heading}
             </Link>
           </Heading>
@@ -80,7 +99,7 @@ const NewsTags: React.FC<INewsTags> = (props) => {
   );
 };
 
-const NewsList = () => {
+const NewsList: React.FC<INewsList> = ({ data }) => {
   return (
     <Container maxW={"7xl"} p="12">
       <Heading as="h1" marginTop="5">
@@ -88,24 +107,19 @@ const NewsList = () => {
       </Heading>
       <Divider my="10" />
       <Wrap spacing="30px">
-        <BlogItem
-          src="./img/global4ukraine.jpg"
-          tags={["Education", "Food"]}
-          heading="Ukrainian refugees should seek schooling outside Prague"
-          content="The Czech government is working to increase school capacities but spaces in big cities will still be scarce."
-        />
-        <BlogItem
-          src="./img/global4ukraine.jpg"
-          tags={["Education", "Food"]}
-          heading="Ukrainian refugees should seek schooling outside Prague"
-          content="The Czech government is working to increase school capacities but spaces in big cities will still be scarce."
-        />
-        <BlogItem
-          src="./img/global4ukraine.jpg"
-          tags={["Education", "Food"]}
-          heading="Ukrainian refugees should seek schooling outside Prague"
-          content="The Czech government is working to increase school capacities but spaces in big cities will still be scarce."
-        />
+        {data.map((post: any) => {
+          const { title, slug, description, heroImage, tags } = post.fields;
+          return (
+            <NewsItem
+              key={post.sys.id}
+              src={`https:${heroImage.fields.file.url}`}
+              tags={tags}
+              heading={title}
+              slug={slug}
+              content={description}
+            />
+          );
+        })}
       </Wrap>
     </Container>
   );

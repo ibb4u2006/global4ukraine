@@ -61,7 +61,10 @@ export default function SmallCentered() {
         justify={"center"}
         align={"center"}
       >
-        <Heading>Global For Ukraine</Heading>
+        <Heading>How to enrol</Heading>
+        <Text fontSize={"lg"}>
+          Contact us using any of the information below for enrolment
+        </Text>
         <Stack direction={"row"} spacing={6}>
           <Link href={"/"}>Home</Link>
           <Link href={"/news"}>News</Link>
@@ -107,13 +110,25 @@ export default function SmallCentered() {
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Email
             </Heading>
-            <Text fontSize="md">info@globalpreschool.cz</Text>
+            <Link
+              fontSize="md"
+              target="_blank"
+              href="mailto:info@globalpreschool.cz"
+            >
+              info@globalpreschool.cz
+            </Link>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               Website
             </Heading>
-            <Text fontSize="md">www.globalpreschool.cz</Text>
+            <Link
+              fontSize="md"
+              target="_blank"
+              href="https://globalpreschool.cz"
+            >
+              www.globalpreschool.cz
+            </Link>
           </WrapItem>
         </Wrap>
       </Container>

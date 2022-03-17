@@ -8,7 +8,7 @@ const AboutPage: React.FunctionComponent<IAboutPageProps> = (props) => {
   return (
     <>
       <Hero
-        title="Global preschool for Ukraine"
+        title="Global Preschool for Ukraine"
         description="Ages 3-6 years "
       />
       <GridListWithHeading />

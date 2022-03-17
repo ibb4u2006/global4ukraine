@@ -87,7 +87,7 @@ export default function GridListWithHeading() {
 
       <Container maxW={"6xl"} mt={10}>
         <Box my={5}>
-          <Heading size={"lg"}>What is the expected outcomes?</Heading>
+          <Heading size={"lg"}>What is the expected outcome?</Heading>
           <Text mt={2} fontSize="md">
             The expected outcomes of implementing a Global Preschool kids club
             in Prague includes

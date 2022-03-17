@@ -70,8 +70,8 @@ export default function DonateForm() {
             >
               <VStack spacing={5}>
                 <Text mt={2} fontSize="md">
-                  Help contributing funds or supplies to our preschool for
-                  Ukrainian children so we can maintain the day to day expenses
+                  Help contribute funds or supplies to our preschool for
+                  Ukrainian children so that we can run the day to day expenses
                   and increase capacity. We are a private organisation and
                   depend totally on private funding at the moment. Reach out to
                   us anytime and we will help you get involved.
@@ -102,7 +102,7 @@ export default function DonateForm() {
                 md: "4xl",
               }}
             >
-              2. Submit your donation
+              2. Tell us about it
             </Heading>
             <Stack spacing={{ base: 4, md: 8, lg: 20 }}>
               <Box
@@ -147,7 +147,7 @@ export default function DonateForm() {
                     }}
                     isFullWidth
                   >
-                    Submit Donation
+                    Submit
                   </Button>
                 </VStack>
               </Box>
