@@ -127,9 +127,9 @@ export default function SmallCentered() {
             <Link
               fontSize="md"
               target="_blank"
-              href="mailto:info@globalpreschool.cz"
+              href="mailto:info@globalconcepts.cz"
             >
-              info@globalpreschool.cz
+              info@globalconcepts.cz
             </Link>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
@@ -142,6 +142,19 @@ export default function SmallCentered() {
             >
               www.globalpreschool.cz
             </Link>
+          </WrapItem>
+          <WrapItem flexDirection={"column"}>
+            <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
+              Map
+            </Heading>
+            <Box py={3}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.658175894441!2d14.32460881601058!3d50.11140477943004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bbfed26c54d49%3A0xe8b868bd5d0fd090!2zTmVidcWhaWNrw6EgNzUsIDE2NCAwMCBQcmFoYS1OZWJ1xaFpY2U!5e0!3m2!1sen!2scz!4v1647554022172!5m2!1sen!2scz"
+                width="350"
+                height="250"
+                loading="lazy"
+              ></iframe>
+            </Box>
           </WrapItem>
         </Wrap>
       </Container>

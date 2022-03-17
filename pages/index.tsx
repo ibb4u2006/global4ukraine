@@ -27,9 +27,13 @@ const Home: NextPage<IHomeProps> = ({ homeNewsList }) => {
         description="Ages 3-6 years "
       />
       <SplitWithImage
-        title="About Global Preschool"
+        logo={{
+          url: "https://globalpreschool.cz/",
+          src: "../img/preschool-logo.png",
+        }}
+        title="Global Preschool for the children of Ukraine"
         subTitle="About us"
-        image="../img/preschool-grad.jpeg"
+        image="../img/about-global.jpeg"
         description="We are a well established preschool in Prague, Czech Republic offering early childhood learning for young children from Ukraine. Most Czech preschools are full and cannot meet the demand of mothers who are seeking to find work. We saw an urgent need in the community and decided to step in and help."
         aboutBtn
       />

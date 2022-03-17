@@ -48,10 +48,10 @@ const features = FEATURES.map(function (feature, index) {
 
 export default function GridListWithHeading() {
   return (
-    <Box p={4} pt={20}>
+    <Box px={4} py={20}>
       <Stack spacing={4} as={Container} maxW={"6xl"} textAlign={"justify"}>
         <Heading fontSize={"3xl"}>About us</Heading>
-        <Text color={"gray.600"} fontSize={"xl"}>
+        <Text color={"gray.600"} fontSize={"lg"}>
           We are a well established preschool in Prague, Czech Republic offering
           early childhood learning for young children from Ukraine. Most Czech
           preschools are full and cannot meet the demand of mothers who are
@@ -101,7 +101,7 @@ export default function GridListWithHeading() {
                 <Icon as={CheckIcon} />
               </Box>
               <VStack align={"start"}>
-                <Text fontWeight={600}>{feature.title}</Text>
+                <Text fontSize={"lg"}>{feature.title}</Text>
               </VStack>
             </HStack>
           ))}

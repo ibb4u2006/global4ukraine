@@ -9,12 +9,11 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
-  Box,
+  Link,
   Button,
 } from "@chakra-ui/react";
 import { IoAnalytics, IoHome, IoPeople } from "react-icons/io5";
 import { ReactElement } from "react";
-import Link from "next/link";
 
 interface ChallengesProps {
   text: string;
@@ -47,6 +46,7 @@ interface ISplitWithImage {
   description: string;
   lists?: boolean;
   aboutBtn?: boolean;
+  logo?: { url: string; src: string };
 }
 
 const SplitWithImage: React.FC<ISplitWithImage> = ({
@@ -56,6 +56,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
   description,
   lists,
   aboutBtn,
+  logo,
 }) => {
   return (
     <Flex bg={"lightGrey"}>
@@ -74,6 +75,11 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
             >
               {subTitle}
             </Text>
+            {logo && (
+              <Link href={logo?.url || ""} target="_blank">
+                <Image src={logo?.src} alt="Logo" height="125" />
+              </Link>
+            )}
             <Heading>{title}</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
               {description}
