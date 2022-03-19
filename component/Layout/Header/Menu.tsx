@@ -55,12 +55,14 @@ const MenuItem: React.FunctionComponent<IMenuItemProps> = ({
   ...rest
 }) => {
   return (
-    <Button variant={"link"} size={"lg"}>
-      <Link href={to}>
-        <Text display="block" {...rest} color={"whiteAlpha.900"}>
-          {children}
-        </Text>
-      </Link>
+    <Button
+      variant={"link"}
+      size={"lg"}
+      display="block"
+      {...rest}
+      color={"whiteAlpha.900"}
+    >
+      <Link href={to}>{children}</Link>
     </Button>
   );
 };
@@ -82,18 +84,19 @@ const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen }) => {
         <MenuItem to="/about">About</MenuItem>
         <MenuItem to="/news">News</MenuItem>
         <MenuItem to="/donate" isLast>
-          <Button
-            colorScheme={"yellow"}
-            size="lg"
+          <Box
+            py={3}
+            px={5}
             rounded="md"
             bg={"secondary"}
+            color={"veryDark"}
             _hover={{
               bg: "yellow.600",
               color: "white",
             }}
           >
             Donate
-          </Button>
+          </Box>
         </MenuItem>
       </Stack>
     </Box>

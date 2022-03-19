@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
-import { title } from "process";
 import SplitWithImage from "../component/Challenges";
-import WithSpeechBubbles from "../component/Donors";
+import Donors from "../component/Donors";
 import Hero from "../component/Hero";
 import NewsList from "../component/News";
 import Partners from "../component/Partners";
@@ -10,16 +9,18 @@ import { contentfulClient } from "../utils/contentful";
 
 interface IHomeProps {
   homeNewsList: [];
+  homeDonorsList: [];
 }
 
 export async function getStaticProps() {
   const homeNewsList = await contentfulClient("blogPost");
+  const homeDonorsList = await contentfulClient("donors");
   return {
-    props: { homeNewsList },
+    props: { homeNewsList, homeDonorsList },
   };
 }
 
-const Home: NextPage<IHomeProps> = ({ homeNewsList }) => {
+const Home: NextPage<IHomeProps> = ({ homeNewsList, homeDonorsList }) => {
   return (
     <>
       <Hero
@@ -38,7 +39,7 @@ const Home: NextPage<IHomeProps> = ({ homeNewsList }) => {
         aboutBtn
       />
       <Partners partnerData={PARTNERS} />
-      <WithSpeechBubbles />
+      <Donors data={homeDonorsList} />
       <NewsList data={homeNewsList} newsBtn />
       <SplitWithImage
         title="What are the challenges for children who have fled the conflict in Ukraine?"

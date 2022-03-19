@@ -1,6 +1,9 @@
 import * as React from "react";
 import Hero from "../../component/Hero";
-import { clientDetails, contentfulClient } from "../../utils/contentful";
+import {
+  client as clientDetails,
+  contentfulClient,
+} from "../../utils/contentful";
 
 interface INewsDetailProps {
   news: any;
@@ -20,7 +23,7 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params }: any) {
-  const { items } = await clientDetails().getEntries({
+  const { items } = await clientDetails.getEntries({
     content_type: "blogPost",
     "fields.slug": params.slug,
   });

@@ -8,24 +8,20 @@ import {
   InputGroup,
   InputLeftElement,
   Stack,
+  Text,
   Textarea,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { useFormik } from "formik";
+import { Formik } from "formik";
 import * as React from "react";
 import { MdOutlineEmail } from "react-icons/md";
+import { postDonor } from "../utils/donor";
+import { uuid } from "uuidv4";
 
 interface IDonateFormProps {}
 
 const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
-  const [formData, setFormData] = React.useState({ email: "", message: "" });
-  const formik = useFormik({
-    initialValues: formData,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
   return (
     <Box
       borderRadius="lg"
@@ -51,50 +47,73 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
               shadow="base"
               width={["sm", "md"]}
             >
-              <form onSubmit={formik.handleSubmit}>
-                <VStack spacing={5}>
-                  <FormControl isRequired>
-                    <FormLabel>Email</FormLabel>
+              <Formik
+                initialValues={{ email: "", message: "" }}
+                onSubmit={async (values, actions) => {
+                  const formData = { ...values, id: uuid() };
+                  console.log(formData);
+                  await postDonor(formData);
+                  actions.setSubmitting(false);
+                  actions.resetForm();
+                  actions.setStatus("submitted");
+                }}
+              >
+                {(props) => (
+                  <form onSubmit={props.handleSubmit}>
+                    <VStack spacing={5}>
+                      <FormControl isRequired>
+                        <FormLabel>Email</FormLabel>
 
-                    <InputGroup>
-                      <InputLeftElement children={<MdOutlineEmail />} />
-                      <Input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        onChange={formik.handleChange}
-                        value={formik.values.email}
-                      />
-                    </InputGroup>
-                  </FormControl>
+                        <InputGroup>
+                          <InputLeftElement children={<MdOutlineEmail />} />
+                          <Input
+                            name="email"
+                            placeholder="Your Email"
+                            onChange={props.handleChange}
+                            value={props.values.email}
+                            onBlur={props.handleBlur}
+                            disabled={props.isSubmitting}
+                          />
+                        </InputGroup>
+                      </FormControl>
 
-                  <FormControl isRequired>
-                    <FormLabel>Message</FormLabel>
+                      <FormControl isRequired>
+                        <FormLabel>Message</FormLabel>
 
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      rows={6}
-                      resize="none"
-                      onChange={formik.handleChange}
-                      value={formik.values.message}
-                    />
-                  </FormControl>
+                        <Textarea
+                          name="message"
+                          placeholder="Your Message"
+                          rows={6}
+                          resize="none"
+                          onChange={props.handleChange}
+                          value={props.values.message}
+                          onBlur={props.handleBlur}
+                          disabled={props.isSubmitting}
+                        />
+                      </FormControl>
 
-                  <Button
-                    type="submit"
-                    colorScheme="blue"
-                    bg="blue.400"
-                    color="white"
-                    _hover={{
-                      bg: "blue.500",
-                    }}
-                    isFullWidth
-                  >
-                    Submit
-                  </Button>
-                </VStack>
-              </form>
+                      <Button
+                        type="submit"
+                        colorScheme="blue"
+                        bg="blue.400"
+                        color="white"
+                        _hover={{
+                          bg: "blue.500",
+                        }}
+                        isFullWidth
+                        isLoading={props.isSubmitting}
+                      >
+                        Submit
+                      </Button>
+                      {props.status === "submitted" && (
+                        <Text color="green.500" fontWeight={"bold"}>
+                          Thank you, your message has been sent!
+                        </Text>
+                      )}
+                    </VStack>
+                  </form>
+                )}
+              </Formik>
             </Box>
           </Stack>
         </VStack>
