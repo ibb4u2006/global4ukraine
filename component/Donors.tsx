@@ -24,31 +24,33 @@ const Donors: React.FC<IDonorProps> = ({ data }) => {
           <Heading>Our Donors</Heading>
           <Text>We have been getting support from people around the world</Text>
         </Stack>
-        <Swiper
-          modules={[Pagination, A11y]}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
-          loop
-          spaceBetween={70}
-          slidesPerView={4}
-          grabCursor={true}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            0: {
-              spaceBetween: 10,
-              slidesPerView: 1,
-            },
-            768: {
-              spaceBetween: 20,
-              slidesPerView: 2,
-            },
-            992: {
-              slidesPerView: 4,
-            },
-          }}
-          style={{ padding: "0 50px 75px" }}
-        >
-          {data.length > 1 &&
-            data.map((donor: any) => {
+        {data.length > 0 && (
+          <Swiper
+            modules={[Pagination, A11y]}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
+            spaceBetween={70}
+            slidesPerView={4}
+            grabCursor={true}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              0: {
+                spaceBetween: 10,
+                slidesPerView: 1,
+              },
+              768: {
+                spaceBetween: 20,
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 4,
+              },
+            }}
+            style={{
+              padding: "0 50px 75px",
+              justifyContent: "center",
+            }}
+          >
+            {data.map((donor: any) => {
               const { message } = donor.fields;
               return (
                 <SwiperSlide key={donor.sys.id}>
@@ -70,7 +72,8 @@ const Donors: React.FC<IDonorProps> = ({ data }) => {
                 </SwiperSlide>
               );
             })}
-        </Swiper>
+          </Swiper>
+        )}
       </Container>
     </Box>
   );

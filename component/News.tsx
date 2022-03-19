@@ -17,7 +17,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y } from "swiper";
+import { Pagination, A11y, Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -116,12 +116,11 @@ const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
       <Divider my="10" />
       <Wrap spacing="30px">
         <Swiper
-          modules={[Pagination, A11y]}
+          modules={[Pagination, A11y, Navigation]}
           autoplay={{ delay: 2000, disableOnInteraction: false }}
-          loop
           spaceBetween={70}
-          slidesPerView={4}
           grabCursor={true}
+          navigation
           pagination={{ clickable: true }}
           breakpoints={{
             0: {

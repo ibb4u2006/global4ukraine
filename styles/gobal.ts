@@ -55,6 +55,10 @@ a {
   }
 }
 
+.swiper-wrapper {
+  justify-content: center;
+}
+
 ${mediaBreakpointDown(
   Breakpoints.BREAKPOINTS.lg,
   css`
