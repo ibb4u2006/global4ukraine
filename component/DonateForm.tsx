@@ -17,7 +17,6 @@ import { Formik } from "formik";
 import * as React from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { postDonor } from "../utils/donor";
-import { uuid } from "uuidv4";
 
 interface IDonateFormProps {}
 
@@ -50,9 +49,7 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
               <Formik
                 initialValues={{ email: "", message: "" }}
                 onSubmit={async (values, actions) => {
-                  const formData = { ...values, id: uuid() };
-                  console.log(formData);
-                  await postDonor(formData);
+                  await postDonor(values);
                   actions.setSubmitting(false);
                   actions.resetForm();
                   actions.setStatus("submitted");

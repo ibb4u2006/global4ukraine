@@ -16,6 +16,11 @@ import {
   Stack,
   Button,
 } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface INewsTags {
   tags: Array<string>;
@@ -43,9 +48,9 @@ const NewsItem: React.FC<NewsItemProps> = ({
 }) => {
   return (
     <WrapItem
-      width={{ base: "100%", md: "45%", lg: "30%" }}
       bg={useColorModeValue("white", "gray.800")}
-      boxShadow={"2xl"}
+      boxShadow={"xl"}
+      h="100%"
     >
       <Box w="100%">
         <Box borderRadius="lg" overflow="hidden">
@@ -104,28 +109,54 @@ const NewsTags: React.FC<INewsTags> = (props) => {
 
 const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
   return (
-    <Container maxW={"7xl"} p="12">
+    <Container maxW={"7xl"} p={["0", "12"]}>
       <Heading as="h1" marginTop="5">
         Latest News
       </Heading>
       <Divider my="10" />
       <Wrap spacing="30px">
-        {data.map((post: any) => {
-          const { title, slug, description, heroImage, tags } = post.fields;
-          return (
-            <NewsItem
-              key={post.sys.id}
-              src={`https:${heroImage.fields.file.url}`}
-              tags={tags}
-              heading={title}
-              slug={slug}
-              content={description}
-            />
-          );
-        })}
+        <Swiper
+          modules={[Pagination, A11y]}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop
+          spaceBetween={70}
+          slidesPerView={4}
+          grabCursor={true}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            0: {
+              spaceBetween: 20,
+              slidesPerView: 1,
+            },
+            768: {
+              spaceBetween: 20,
+              slidesPerView: 2,
+            },
+            992: {
+              slidesPerView: 3,
+            },
+          }}
+          style={{ padding: "0 50px 75px" }}
+        >
+          {data.map((post: any) => {
+            const { title, slug, description, heroImage, tags } = post.fields;
+            return (
+              <SwiperSlide key={post.sys.id}>
+                <NewsItem
+                  key={post.sys.id}
+                  src={`https:${heroImage.fields.file.url}`}
+                  tags={tags}
+                  heading={title}
+                  slug={slug}
+                  content={description}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </Wrap>
       {newsBtn && (
-        <Stack direction={"row"} p={20} justify={"center"}>
+        <Stack direction={"row"} p={10} justify={"center"}>
           <Button
             colorScheme={"blue"}
             size={"lg"}
