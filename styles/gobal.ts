@@ -61,6 +61,22 @@ a {
 	padding: 40px 0;
 }
 
+.slick-next, .slick-prev {
+  z-index: 1;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: ${(props: any) => props.theme.colors.primary};
+}
+
 ${mediaBreakpointDown(
   Breakpoints.BREAKPOINTS.lg,
   css`
