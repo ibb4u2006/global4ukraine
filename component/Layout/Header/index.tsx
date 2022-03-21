@@ -9,14 +9,15 @@ interface IHeaderProps {}
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
-
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
   return (
     <NavBar {...props}>
       <Logo color={["white", "white", "primary.500", "primary.500"]} />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
-      <Menu isOpen={isOpen} />
+      <Menu isOpen={isOpen} closeMenu={closeMenu} />
     </NavBar>
   );
 };

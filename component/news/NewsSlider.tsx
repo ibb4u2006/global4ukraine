@@ -6,7 +6,6 @@ import {
   Stack,
   Button,
   Flex,
-  Wrap,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import NewsItem from "./NewsItem";
@@ -47,11 +46,11 @@ interface INewsList {
 const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
   return (
     <Flex bg={"lightGrey"}>
-      <Container maxW={"7xl"} p={["0", "12"]}>
+      <Container maxW={"7xl"} py={[10, 20]}>
         <Heading as="h1" mt="5" textAlign="center">
           Latest News
         </Heading>
-        <Divider my="10" />
+        <Divider my={["5", "10"]} />
         <Slider {...settings}>
           {data.map((post: any) => {
             const { title, slug, description, heroImage, tags } = post.fields;

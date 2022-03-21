@@ -10,9 +10,11 @@ interface IMenuToggleProps {
 interface IMenuItemProps {
   isLast?: boolean;
   to: string;
+  closeMenu: () => void;
 }
 interface IMenuProps {
   isOpen: boolean;
+  closeMenu: () => void;
 }
 
 const CloseIcon = () => (
@@ -52,6 +54,7 @@ const MenuItem: React.FunctionComponent<IMenuItemProps> = ({
   children,
   isLast,
   to = "/",
+  closeMenu,
   ...rest
 }) => {
   return (
@@ -61,13 +64,14 @@ const MenuItem: React.FunctionComponent<IMenuItemProps> = ({
       display="block"
       {...rest}
       color={"whiteAlpha.900"}
+      onClick={() => closeMenu()}
     >
       <Link href={to}>{children}</Link>
     </Button>
   );
 };
 
-const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen }) => {
+const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen, closeMenu }) => {
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -80,10 +84,16 @@ const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/about">About</MenuItem>
-        <MenuItem to="/news">News</MenuItem>
-        <MenuItem to="/donate" isLast>
+        <MenuItem to="/" closeMenu={closeMenu}>
+          Home
+        </MenuItem>
+        <MenuItem to="/about" closeMenu={closeMenu}>
+          About
+        </MenuItem>
+        <MenuItem to="/news" closeMenu={closeMenu}>
+          News
+        </MenuItem>
+        <MenuItem to="/donate" closeMenu={closeMenu} isLast>
           <Box
             py={3}
             px={5}

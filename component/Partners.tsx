@@ -17,7 +17,7 @@ interface IPartnersProps {
 const Partners: React.FunctionComponent<IPartnersProps> = ({ partnerData }) => {
   return (
     <Flex>
-      <Container maxW={"7xl"} py={20} textAlign={"center"}>
+      <Container maxW={"7xl"} py={[10, 20]} textAlign={"center"}>
         <Stack spacing={0} pb={10}>
           <Heading>Our Partners</Heading>
         </Stack>
