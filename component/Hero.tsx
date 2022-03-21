@@ -8,17 +8,20 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import * as React from "react";
+import CTA from "./CTA";
 
 interface IHeroProps {
   title: string;
-  description: string;
+  description?: string;
   heroImg?: string;
+  noDonateBtn?: boolean;
 }
 
 const Hero: React.FunctionComponent<IHeroProps> = ({
   title,
   description,
   heroImg,
+  noDonateBtn,
 }) => {
   return (
     <Box
@@ -48,15 +51,19 @@ const Hero: React.FunctionComponent<IHeroProps> = ({
             >
               {title}
             </Heading>
-            <Text fontSize="2xl" color={"whiteAlpha.900"}>
-              {description}
-            </Text>
-            <Heading
-              fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-            >
-              🇺🇦
-            </Heading>
+            {description && (
+              <Text fontSize="2xl" color={"whiteAlpha.900"}>
+                {description}
+              </Text>
+            )}
+            {!noDonateBtn && (
+              <CTA
+                label="Donate Now"
+                labelUrl="/donate"
+                subLabel="Class one is full, your donations will help support future classes"
+                lightSubLabel
+              />
+            )}
           </Stack>
         </Container>
       </Flex>

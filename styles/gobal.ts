@@ -1,5 +1,7 @@
 import { Breakpoints, createGlobalStyle, css } from "../theme/";
 import { mediaBreakpointDown } from "../theme/breakpoints";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -55,8 +57,8 @@ a {
   }
 }
 
-.swiper-wrapper {
-  justify-content: center;
+.slick-list {
+	padding: 40px 0;
 }
 
 ${mediaBreakpointDown(

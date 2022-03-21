@@ -59,7 +59,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
   logo,
 }) => {
   return (
-    <Flex bg={"lightGrey"}>
+    <Flex>
       <Container maxW={"5xl"} py={20}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
@@ -97,7 +97,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
                   icon={<Icon as={IoHome} color={"yellow.500"} w={5} h={5} />}
                   iconBg={useColorModeValue("yellow.100", "yellow.900")}
                   text={
-                    "At least 1.5 million people has been forced from their homes"
+                    "At least 3.1 million people has been forced from their homes"
                   }
                 />
                 <Challenges

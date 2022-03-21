@@ -54,25 +54,25 @@ export default function GridListWithHeading() {
         <Text color={"gray.600"} fontSize={"lg"}>
           We are a well established preschool in Prague, Czech Republic offering
           early childhood learning for young children from Ukraine. Most Czech
-          preschools are full and cannot meet the demand of mothers who are
+          preschools are full and cannot meet the demands of mothers who are
           seeking to find work. We saw an urgent need in the community and
           decided to step in and help.
           <br />
-          <br /> We took the initiative with the help of some institutions and
-          individuals in the Czech Republic and around the world. Our goal is to
-          create a preschool environment, just like Global Concepts, to let
-          these young children go to school and feel a normal, especially, in
-          these not so normal times.
+          <br /> We undertook this initiative with the help of some institutions
+          and individuals in the Czech Republic and around the world. Our goal
+          is to create a preschool environment, just like Global Concepts, to
+          let these young children attend school and experience normalcy,
+          especially, in these not so normal times.
           <br />
           <br /> Classes will be led by Ukrainian preschool teachers that fled
-          the war along with English clubs run by our own Global Preschool
+          the war, along with English clubs run by our own Global Preschool
           teachers. We will also introduce Czech Language once the children feel
           happy and safe in their new environment.
           <br />
           <br /> The provision of early childhood education (ECE) for refugees
-          is extremely limited in many settings. Where it does exist, programmes
-          are often poorly resourced. While all refugee education is
-          underfunded, ECE is particularly underfunded and under-supported.
+          is extremely limited in the Czech Republic (took out next sentence
+          here). While all refugee education is underfunded, ECE is particularly
+          underfunded and under-supported.
           <br />
           <br />
           High-quality ECE can be a powerful avenue for helping young refugee
@@ -109,18 +109,20 @@ export default function GridListWithHeading() {
         <Box mt={10}>
           <Heading size={"lg"}>How can you help -</Heading>
           <Text mt={2} fontSize="md">
-            Help contributing funds or supplies to our preschool for Ukrainian
-            children so we can maintain the day to day expenses and increase
+            Help contribute funds or supplies to our preschool for Ukrainian
+            children so that we can support the day to day expenses and increase
             capacity. We are a private organisation and depend totally on
-            private funding at the moment. Reach out to us anytime and we will
-            help you get involved.
+            private funding at the moment. We greatly appreciate your donations.
+            All donations will go directly towards the operation of this crisis
+            center for refugee children.
             <br />
             <br /> You can transfer funds directly to the following account -
-            <br />U BUSINESS NEXT, PO
-            <br /> 5276974028/2700
+            <br />
+            UniCredit Bank
             <br /> IBAN: CZ15 2700 0000 0052 7697 4028
             <br /> Account number: 5276974028/2700
-            <br /> Account owner: GLOBAL CONCEPTS, s.r.o.
+            <br /> Account owner: GLOBAL CONCEPTS
+            <br /> Full financial transparency is available at all times.
           </Text>
         </Box>
       </Container>

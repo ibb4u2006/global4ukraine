@@ -1,6 +1,6 @@
 import * as React from "react";
 import Hero from "../../component/Hero";
-import NewsList from "../../component/News";
+import News from "../../component/news";
 import { contentfulClient } from "../../utils/contentful";
 
 interface INewsPageProps {
@@ -17,11 +17,8 @@ export async function getStaticProps() {
 const NewsPage: React.FunctionComponent<INewsPageProps> = ({ allNewsList }) => {
   return (
     <>
-      <Hero
-        title="Global Preschool for the children of Ukraine"
-        description="Ages 3-6 years"
-      />
-      <NewsList data={allNewsList} />
+      <Hero title="Latest News" />
+      <News data={allNewsList} />
     </>
   );
 };
