@@ -64,18 +64,21 @@ export default function Donate() {
               <VStack spacing={5}>
                 <Text mt={2} fontSize="md">
                   Help contribute funds or supplies to our preschool for
-                  Ukrainian children so that we can run the day to day expenses
-                  and increase capacity. We are a private organisation and
-                  depend totally on private funding at the moment. Reach out to
-                  us anytime and we will help you get involved.
+                  Ukrainian children so that we can support the day to day
+                  expenses and increase capacity. We are a private organisation
+                  and depend totally on private funding at the moment. We
+                  greatly appreciate your donations. All donations will go
+                  directly towards the operation of this crisis center for
+                  refugee children.
                   <br />
                   <br /> You can transfer funds directly to the following
                   account -
-                  <br />U BUSINESS NEXT, PO
-                  <br /> 5276974028/2700
+                  <br />
+                  UniCredit Bank
                   <br /> IBAN: CZ15 2700 0000 0052 7697 4028
                   <br /> Account number: 5276974028/2700
-                  <br /> Account owner: GLOBAL CONCEPTS, s.r.o.
+                  <br /> Account owner: GLOBAL CONCEPTS
+                  <br /> Full financial transparency is available at all times.
                 </Text>
               </VStack>
             </Box>
