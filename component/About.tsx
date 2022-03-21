@@ -107,7 +107,7 @@ export default function GridListWithHeading() {
           ))}
         </SimpleGrid>
         <Box mt={10}>
-          <Heading size={"lg"}>How can you help -</Heading>
+          <Heading size={"lg"}>How you can help -</Heading>
           <Text mt={2} fontSize="md">
             Help contribute funds or supplies to our preschool for Ukrainian
             children so that we can support the day to day expenses and increase
