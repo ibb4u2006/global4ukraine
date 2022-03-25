@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Theme, ThemeProvider } from "../theme";
 import Layout from "../component/Layout";
 import GlobalStyle from "../styles/gobal";
+import SimpleReactLightbox from "simple-react-lightbox";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={Theme}>
         <GlobalStyle />
         <Layout>
-          <Component {...pageProps} />
+          <SimpleReactLightbox>
+            <Component {...pageProps} />
+          </SimpleReactLightbox>
         </Layout>
       </ChakraProvider>
     </ThemeProvider>

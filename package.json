@@ -16,6 +16,7 @@
     "@types/nodemailer": "^6.4.4",
     "@types/react-icons": "^3.0.0",
     "@types/react-slick": "^0.23.8",
+    "@types/simple-react-lightbox": "^3.6.1",
     "@types/slick-carousel": "^1.6.37",
     "@types/styled-components": "^5.1.24",
     "contentful": "^9.1.15",
@@ -27,6 +28,7 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-slick": "^0.28.1",
+    "simple-react-lightbox": "^3.6.9-0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3"
   },

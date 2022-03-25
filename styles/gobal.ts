@@ -77,6 +77,18 @@ a {
   color: ${(props: any) => props.theme.colors.primary};
 }
 
+.gallery-container {
+  >div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    >img {
+      cursor: pointer;
+    }
+  }
+}
+
 ${mediaBreakpointDown(
   Breakpoints.BREAKPOINTS.lg,
   css`

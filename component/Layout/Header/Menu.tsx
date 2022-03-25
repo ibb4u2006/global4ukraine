@@ -90,6 +90,9 @@ const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen, closeMenu }) => {
         <MenuItem to="/about" closeMenu={closeMenu}>
           About
         </MenuItem>
+        <MenuItem to="/gallery" closeMenu={closeMenu}>
+          Gallery
+        </MenuItem>
         <MenuItem to="/news" closeMenu={closeMenu}>
           News
         </MenuItem>

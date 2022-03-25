@@ -1,13 +1,11 @@
 import {
   Box,
-  Flex,
   Heading,
   Image,
   Link,
   Stack,
   Text,
   useColorModeValue,
-  WrapItem,
 } from "@chakra-ui/react";
 import NewsTags from "./NewsTag";
 
