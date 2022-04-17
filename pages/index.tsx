@@ -6,10 +6,9 @@ import NewsList from "../component/news/NewsSlider";
 import Partners from "../component/Partners";
 import { PARTNERS } from "../data/partners";
 import { contentfulClient } from "../utils/contentful";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { IoAnalytics, IoHome, IoPeople } from "react-icons/io5";
 import { CHALLENGES } from "../data/challenges";
+import { getServerSideTranslations } from "../utils/translations";
 
 interface IHomeProps {
   homeNewsList: [];
@@ -19,7 +18,10 @@ interface IHomeProps {
 export async function getStaticProps({ locale }: any) {
   const homeNewsList = await contentfulClient("blogPost");
   const homeDonorsList = await contentfulClient("donors");
-  const translation = await serverSideTranslations(locale, ["common", "home"]);
+  const translation = await getServerSideTranslations(locale, [
+    "common",
+    "home",
+  ]);
   return {
     props: { homeNewsList, homeDonorsList, ...translation },
   };
