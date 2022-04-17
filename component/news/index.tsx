@@ -1,4 +1,4 @@
-import { Container, Flex, SimpleGrid, Stack, Wrap } from "@chakra-ui/react";
+import { Container, Flex, SimpleGrid } from "@chakra-ui/react";
 import * as React from "react";
 import NewsItem from "./NewsItem";
 
@@ -16,11 +16,11 @@ const News: React.FunctionComponent<INewsProps> = ({ data }) => {
           py={["10", "0"]}
         >
           {data.map((post: any) => {
-            const { title, slug, description, heroImage, tags } = post.fields;
+            const { id, title, description, img, tags, slug } = post;
             return (
               <NewsItem
-                key={post.sys.id}
-                src={`https:${heroImage.fields.file.url}`}
+                key={id}
+                src={img}
                 tags={tags}
                 heading={title}
                 slug={slug}

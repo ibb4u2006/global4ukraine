@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import SplitWithImage from "../component/Challenges";
-import Donors from "../component/Donors";
 import Hero from "../component/Hero";
 import NewsList from "../component/news/NewsSlider";
 import Partners from "../component/Partners";
@@ -9,6 +8,7 @@ import { contentfulClient } from "../utils/contentful";
 import { useTranslation } from "next-i18next";
 import { CHALLENGES } from "../data/challenges";
 import { getServerSideTranslations } from "../utils/translations";
+import { NEWS } from "../data/news";
 
 interface IHomeProps {
   homeNewsList: [];
@@ -52,8 +52,11 @@ const Home: NextPage<IHomeProps> = ({ homeNewsList, homeDonorsList }) => {
         partnerHeading={t("home:partners-title")}
         partnerData={PARTNERS}
       />
-      {/* <Donors data={homeDonorsList} /> */}
-      <NewsList data={homeNewsList} newsBtn />
+      <NewsList
+        data={NEWS}
+        newsHeading={t("home:news-title")}
+        newsBtnLabel={t("home:news-button")}
+      />
       <SplitWithImage
         title={t("home:challenges-title")}
         subTitle={t("home:challenges-tag")}

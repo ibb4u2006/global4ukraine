@@ -1,45 +1,45 @@
 import * as React from "react";
 import Hero from "../../component/Hero";
-import {
-  client as clientDetails,
-  contentfulClient,
-} from "../../utils/contentful";
+import { NEWS } from "../../data/news";
+import { useTranslation } from "next-i18next";
+import { getServerSideTranslations } from "../../utils/translations";
 
 interface INewsDetailProps {
   news: any;
 }
 
-export const getStaticPaths = async () => {
-  const newsDetail = await contentfulClient("blogPost");
-  const paths = newsDetail.map((item: any) => {
-    return {
-      params: { slug: item.fields.slug },
-    };
-  });
+export const getStaticPaths = async ({ locales }: any) => {
+  const paths = NEWS.map((item: any) =>
+    locales.map((locale: any) => ({ params: { slug: item.slug }, locale }))
+  ).flat();
   return {
     paths,
     fallback: false,
   };
 };
 
-export async function getStaticProps({ params }: any) {
-  const { items } = await clientDetails.getEntries({
-    content_type: "blogPost",
-    "fields.slug": params.slug,
-  });
+export async function getStaticProps({ params, locale }: any) {
+  const news = NEWS.find((news) => news.slug === params.slug);
+  const translation = await getServerSideTranslations(locale, [
+    "common",
+    "home",
+  ]);
   return {
-    props: { news: items[0] },
+    props: { news, ...translation },
   };
 }
 
 const NewsDetail: React.FunctionComponent<INewsDetailProps> = ({ news }) => {
-  const { title, description, heroImage } = news.fields;
+  const { t } = useTranslation();
+  const { title, description, img } = news;
   return (
     <>
       <Hero
-        title={title}
-        description={description}
-        heroImg={`https:${heroImage.fields.file.url}`}
+        title={t(title)}
+        description={t(description)}
+        donateBtnLabel={t("common:donate-button")}
+        classStatus={t("common:class-status")}
+        heroImg={img}
       />
     </>
   );
