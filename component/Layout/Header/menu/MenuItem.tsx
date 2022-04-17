@@ -15,27 +15,29 @@ const MenuItem: React.FunctionComponent<IMenuItemProps> = ({
   ...rest
 }) => {
   return (
-    <Button
-      variant={"link"}
-      size={"lg"}
-      display="block"
-      {...rest}
-      onClick={() => closeMenu()}
-      p={isButton ? 3 : 0}
-      rounded={isButton ? "md" : ""}
-      bg={isButton ? "secondary" : ""}
-      color={isButton ? "veryDark" : "whiteAlpha.900"}
-      _hover={
-        isButton
-          ? {
-              bg: "yellow.600",
-              color: "white",
-            }
-          : {}
-      }
-    >
-      <Link href={to}>{children}</Link>
-    </Button>
+    <Link href={to}>
+      <Button
+        variant={"link"}
+        size={"lg"}
+        display="block"
+        {...rest}
+        onClick={() => closeMenu()}
+        p={isButton ? 3 : 0}
+        rounded={isButton ? "md" : ""}
+        bg={isButton ? "secondary" : ""}
+        color={isButton ? "veryDark" : "whiteAlpha.900"}
+        _hover={
+          isButton
+            ? {
+                bg: "yellow.600",
+                color: "white",
+              }
+            : {}
+        }
+      >
+        {children}
+      </Button>
+    </Link>
   );
 };
 

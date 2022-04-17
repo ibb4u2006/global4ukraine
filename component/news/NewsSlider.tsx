@@ -75,17 +75,19 @@ const NewsList: React.FC<INewsList> = ({ newsHeading, newsBtnLabel, data }) => {
         </Slider>
         {newsBtnLabel && (
           <Stack direction={"row"} p={10} justify={"center"}>
-            <Button
-              colorScheme={"blue"}
-              size={"lg"}
-              bg={"primary"}
-              rounded={"full"}
-              _hover={{
-                bg: "blue.700",
-              }}
-            >
-              <Link href={"/news"}>{newsBtnLabel}</Link>
-            </Button>
+            <Link href={"/news"}>
+              <Button
+                colorScheme={"blue"}
+                size={"lg"}
+                bg={"primary"}
+                rounded={"full"}
+                _hover={{
+                  bg: "blue.700",
+                }}
+              >
+                {newsBtnLabel}
+              </Button>
+            </Link>
           </Stack>
         )}
       </Container>

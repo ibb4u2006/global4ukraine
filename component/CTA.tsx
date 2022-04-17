@@ -45,19 +45,21 @@ const CTA: React.FunctionComponent<ICTAProps> = ({
         alignSelf={"center"}
         position={"relative"}
       >
-        <Button
-          colorScheme={"blue"}
-          size={"lg"}
-          bg={"primary"}
-          color={"yellow.300"}
-          rounded={"full"}
-          px={6}
-          _hover={{
-            bg: "blue.700",
-          }}
-        >
-          <Link href={labelUrl}>{label}</Link>
-        </Button>
+        <Link href={labelUrl}>
+          <Button
+            colorScheme={"blue"}
+            size={"lg"}
+            bg={"primary"}
+            color={"yellow.300"}
+            rounded={"full"}
+            px={6}
+            _hover={{
+              bg: "blue.700",
+            }}
+          >
+            {label}
+          </Button>
+        </Link>
         {subLabelUrl ? (
           <Button
             variant={"link"}

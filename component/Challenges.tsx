@@ -118,17 +118,19 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
             )}
             {aboutBtnLabel && (
               <Stack direction={"row"}>
-                <Button
-                  colorScheme={"blue"}
-                  size={"lg"}
-                  bg={"primary"}
-                  rounded={"full"}
-                  _hover={{
-                    bg: "blue.700",
-                  }}
-                >
-                  <Link href={"/about"}>{aboutBtnLabel}</Link>
-                </Button>
+                <Link href={"/about"}>
+                  <Button
+                    colorScheme={"blue"}
+                    size={"lg"}
+                    bg={"primary"}
+                    rounded={"full"}
+                    _hover={{
+                      bg: "blue.700",
+                    }}
+                  >
+                    {aboutBtnLabel}
+                  </Button>
+                </Link>
               </Stack>
             )}
           </Stack>
