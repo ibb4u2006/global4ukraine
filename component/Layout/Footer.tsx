@@ -76,6 +76,8 @@ export default function SmallCentered() {
               </Link>
             );
           })}
+        </Stack>
+        <Stack direction={"row"} spacing={6} alignItems="center">
           <LocaleSwitcher />
         </Stack>
       </Container>

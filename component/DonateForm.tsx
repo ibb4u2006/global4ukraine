@@ -25,6 +25,7 @@ interface IDonateFormProps {
   messageLabel: string;
   messagePlaceholder: string;
   submitLabel: string;
+  successMessage: string;
 }
 
 const DonateForm: React.FunctionComponent<IDonateFormProps> = ({
@@ -34,6 +35,7 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = ({
   messageLabel,
   messagePlaceholder,
   submitLabel,
+  successMessage,
 }) => {
   return (
     <Box
@@ -118,7 +120,7 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = ({
                       </Button>
                       {props.status === "submitted" && (
                         <Text color="green.500" fontWeight={"bold"}>
-                          Thank you, your message has been sent!
+                          {successMessage}
                         </Text>
                       )}
                     </VStack>

@@ -98,6 +98,7 @@ const Donate: React.FunctionComponent<IDonateProps> = ({
         messageLabel={t("donate:message-label")}
         messagePlaceholder={t("donate:message-placeholder")}
         submitLabel={t("donate:submit-button")}
+        successMessage={t("donate:success-message")}
       />
     </Flex>
   );
