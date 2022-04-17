@@ -6,48 +6,58 @@ import NewsList from "../component/news/NewsSlider";
 import Partners from "../component/Partners";
 import { PARTNERS } from "../data/partners";
 import { contentfulClient } from "../utils/contentful";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import { IoAnalytics, IoHome, IoPeople } from "react-icons/io5";
+import { CHALLENGES } from "../data/challenges";
 
 interface IHomeProps {
   homeNewsList: [];
   homeDonorsList: [];
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: any) {
   const homeNewsList = await contentfulClient("blogPost");
   const homeDonorsList = await contentfulClient("donors");
+  const translation = await serverSideTranslations(locale, ["common", "home"]);
   return {
-    props: { homeNewsList, homeDonorsList },
+    props: { homeNewsList, homeDonorsList, ...translation },
   };
 }
 
 const Home: NextPage<IHomeProps> = ({ homeNewsList, homeDonorsList }) => {
+  const { t } = useTranslation();
   return (
     <>
       <Hero
-        title="Global Preschool for the children of Ukraine"
-        description="Ages 3-6 years "
+        title={t("common:hero-title")}
+        description={t("common:hero-description")}
+        donateBtnLabel={t("common:donate-button")}
+        classStatus={t("common:class-status")}
       />
       <SplitWithImage
         logo={{
           url: "https://globalpreschool.cz/",
           src: "../img/preschool-logo.png",
         }}
-        title="Global Preschool for the children of Ukraine"
-        subTitle="About us"
+        title={t("home:about-title")}
+        subTitle={t("common:about-menu")}
         image="../img/about-global.jpeg"
-        description="We are a well established preschool in Prague, Czech Republic offering early childhood learning for young children from Ukraine. Most Czech preschools are full and cannot meet the demands of mothers who are seeking to find work. We saw an urgent need in the community and decided to step in and help."
-        aboutBtn
+        description={t("home:about-description")}
+        aboutBtnLabel={t("home:about-button")}
       />
-      <Partners partnerData={PARTNERS} />
+      <Partners
+        partnerHeading={t("home:partners-title")}
+        partnerData={PARTNERS}
+      />
       {/* <Donors data={homeDonorsList} /> */}
       <NewsList data={homeNewsList} newsBtn />
       <SplitWithImage
-        title="What are the challenges for children who have fled the conflict in Ukraine?"
-        subTitle="Challenges"
+        title={t("home:challenges-title")}
+        subTitle={t("home:challenges-tag")}
         image="../img/ukraine-child.jpg"
-        description="Many children in Ukraine have already witnessed or experienced
-        acts of violence over eight years of conflict."
-        lists
+        description={t("home:challenges-description")}
+        lists={CHALLENGES}
       />
     </>
   );

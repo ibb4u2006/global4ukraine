@@ -12,8 +12,8 @@ import {
   Link,
   Button,
 } from "@chakra-ui/react";
-import { IoAnalytics, IoHome, IoPeople } from "react-icons/io5";
 import { ReactElement } from "react";
+import { useTranslation } from "next-i18next";
 
 interface ChallengesProps {
   text: string;
@@ -44,8 +44,8 @@ interface ISplitWithImage {
   subTitle: string;
   image: string;
   description: string;
-  lists?: boolean;
-  aboutBtn?: boolean;
+  lists?: object[];
+  aboutBtnLabel?: string;
   logo?: { url: string; src: string };
 }
 
@@ -55,9 +55,10 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
   image,
   description,
   lists,
-  aboutBtn,
+  aboutBtnLabel,
   logo,
 }) => {
+  const { t } = useTranslation();
   return (
     <Flex>
       <Container maxW={"5xl"} py={[10, 20]}>
@@ -93,32 +94,29 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
                   />
                 }
               >
-                <Challenges
-                  icon={<Icon as={IoHome} color={"yellow.500"} w={5} h={5} />}
-                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                  text={
-                    "At least 3.1 million people has been forced from their homes"
-                  }
-                />
-                <Challenges
-                  icon={<Icon as={IoPeople} color={"green.500"} w={5} h={5} />}
-                  iconBg={useColorModeValue("green.100", "green.900")}
-                  text={
-                    "Over 400,000 children currently live in the conflict zone"
-                  }
-                />
-                <Challenges
-                  icon={
-                    <Icon as={IoAnalytics} color={"purple.500"} w={5} h={5} />
-                  }
-                  iconBg={useColorModeValue("purple.100", "purple.900")}
-                  text={
-                    "Child poverty rates are up more than 57% in some regions of Ukraine"
-                  }
-                />
+                {lists.map((list: any) => {
+                  return (
+                    <Challenges
+                      key={list.id}
+                      icon={
+                        <Icon
+                          as={list.icon}
+                          color={`${list.color}.500`}
+                          w={5}
+                          h={5}
+                        />
+                      }
+                      iconBg={useColorModeValue(
+                        `${list.color}.100`,
+                        `${list.color}.900`
+                      )}
+                      text={t(list.challenge)}
+                    />
+                  );
+                })}
               </Stack>
             )}
-            {aboutBtn && (
+            {aboutBtnLabel && (
               <Stack direction={"row"}>
                 <Button
                   colorScheme={"blue"}
@@ -129,7 +127,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
                     bg: "blue.700",
                   }}
                 >
-                  <Link href={"/about"}>Learn more about us</Link>
+                  <Link href={"/about"}>{aboutBtnLabel}</Link>
                 </Button>
               </Stack>
             )}

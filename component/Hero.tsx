@@ -12,6 +12,8 @@ import CTA from "./CTA";
 
 interface IHeroProps {
   title: string;
+  donateBtnLabel?: string;
+  classStatus?: string;
   description?: string;
   heroImg?: string;
   noDonateBtn?: boolean;
@@ -19,6 +21,8 @@ interface IHeroProps {
 
 const Hero: React.FunctionComponent<IHeroProps> = ({
   title,
+  donateBtnLabel,
+  classStatus,
   description,
   heroImg,
   noDonateBtn,
@@ -58,9 +62,9 @@ const Hero: React.FunctionComponent<IHeroProps> = ({
             )}
             {!noDonateBtn && (
               <CTA
-                label="Donate Now"
+                label={donateBtnLabel || ""}
                 labelUrl="/donate"
-                subLabel="Class one is full, your donations will help support future classes"
+                subLabel={classStatus || ""}
                 lightSubLabel
               />
             )}

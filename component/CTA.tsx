@@ -11,7 +11,7 @@ import Link from "next/link";
 import * as React from "react";
 
 interface ICTAProps {
-  arrowText?: boolean;
+  arrowText?: string;
   label: string;
   labelUrl: string;
   subLabel: string;
@@ -89,7 +89,7 @@ const CTA: React.FunctionComponent<ICTAProps> = ({
               transform={"rotate(10deg)"}
               color={"veryDark"}
             >
-              To Ukraine's Children
+              {arrowText}
             </Text>
           </Box>
         )}

@@ -11,15 +11,19 @@ import {
 import * as React from "react";
 
 interface IPartnersProps {
+  partnerHeading: string;
   partnerData: any[];
 }
 
-const Partners: React.FunctionComponent<IPartnersProps> = ({ partnerData }) => {
+const Partners: React.FunctionComponent<IPartnersProps> = ({
+  partnerHeading,
+  partnerData,
+}) => {
   return (
     <Flex>
       <Container maxW={"7xl"} py={[10, 20]} textAlign={"center"}>
         <Stack spacing={0} pb={10}>
-          <Heading>Our Partners</Heading>
+          <Heading>{partnerHeading}</Heading>
         </Stack>
         <Wrap
           direction={"row"}
