@@ -162,7 +162,7 @@ export default function SmallCentered() {
         arrowText={t("common:button-arrow")}
         label={t("common:donate-button")}
         labelUrl="/donate"
-        subLabel={t("home:about-button")}
+        subLabel={t("common:about-button")}
         subLabelUrl="/about"
       />
       <Box

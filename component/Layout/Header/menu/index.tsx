@@ -1,10 +1,9 @@
 import { Box, Stack } from "@chakra-ui/react";
 import * as React from "react";
 import LocaleMenu from "./LocaleMenu";
-import MenuItem from "./ItemMenu";
-import ButtonMenu from "./ButtonMenu";
 import { MENU } from "../../../../data/header";
 import { useTranslation } from "next-i18next";
+import MenuItem from "./MenuItem";
 
 interface IMenuProps {
   isOpen: boolean;
@@ -27,12 +26,13 @@ const Menu: React.FunctionComponent<IMenuProps> = ({ isOpen, closeMenu }) => {
       >
         {MENU.map((menu) => {
           return (
-            <MenuItem key={menu.id} to={menu.to} closeMenu={closeMenu}>
-              {menu.isButton ? (
-                <ButtonMenu label={t(menu.label)} />
-              ) : (
-                t(menu.label)
-              )}
+            <MenuItem
+              key={menu.id}
+              to={menu.to}
+              closeMenu={closeMenu}
+              isButton={menu.isButton}
+            >
+              {t(menu.label)}
             </MenuItem>
           );
         })}

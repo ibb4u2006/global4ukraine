@@ -18,9 +18,23 @@ import * as React from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { postDonor } from "../utils/donor";
 
-interface IDonateFormProps {}
+interface IDonateFormProps {
+  tellTitle: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  submitLabel: string;
+}
 
-const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
+const DonateForm: React.FunctionComponent<IDonateFormProps> = ({
+  tellTitle,
+  emailLabel,
+  emailPlaceholder,
+  messageLabel,
+  messagePlaceholder,
+  submitLabel,
+}) => {
   return (
     <Box
       borderRadius="lg"
@@ -35,7 +49,7 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
               md: "4xl",
             }}
           >
-            2. Tell us about it
+            {tellTitle}
           </Heading>
           <Stack spacing={{ base: 4, md: 8, lg: 20 }}>
             <Box
@@ -59,13 +73,13 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
                   <form onSubmit={props.handleSubmit}>
                     <VStack spacing={5}>
                       <FormControl isRequired>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{emailLabel}</FormLabel>
 
                         <InputGroup>
                           <InputLeftElement children={<MdOutlineEmail />} />
                           <Input
                             name="email"
-                            placeholder="Your Email"
+                            placeholder={emailPlaceholder}
                             onChange={props.handleChange}
                             value={props.values.email}
                             onBlur={props.handleBlur}
@@ -75,11 +89,11 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
                       </FormControl>
 
                       <FormControl isRequired>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>{messageLabel}</FormLabel>
 
                         <Textarea
                           name="message"
-                          placeholder="Your Message"
+                          placeholder={messagePlaceholder}
                           rows={6}
                           resize="none"
                           onChange={props.handleChange}
@@ -100,7 +114,7 @@ const DonateForm: React.FunctionComponent<IDonateFormProps> = (props) => {
                         isFullWidth
                         isLoading={props.isSubmitting}
                       >
-                        Submit
+                        {submitLabel}
                       </Button>
                       {props.status === "submitted" && (
                         <Text color="green.500" fontWeight={"bold"}>
