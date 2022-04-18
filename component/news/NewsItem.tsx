@@ -2,13 +2,13 @@ import {
   Box,
   Heading,
   Image,
-  Link,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import NewsTags from "./NewsTag";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 interface NewsItemProps {
   src: string;
@@ -35,12 +35,13 @@ const NewsItem: React.FC<NewsItemProps> = ({
       marginRight="auto"
     >
       <Box w="100%">
-        <Box borderRadius="lg" overflow="hidden">
-          <Link
-            textDecoration="none"
-            _hover={{ textDecoration: "none" }}
-            href={`news/${slug}`}
-          >
+        <Box
+          borderRadius="lg"
+          overflow="hidden"
+          textDecoration="none"
+          _hover={{ textDecoration: "none", cursor: "grab" }}
+        >
+          <Link href={`news/${slug}`}>
             <Image
               transform="scale(1.0)"
               src={src}
@@ -58,13 +59,7 @@ const NewsItem: React.FC<NewsItemProps> = ({
         <Box p={5}>
           <NewsTags tags={tags} marginTop="3" />
           <Heading fontSize="xl" marginTop="2">
-            <Link
-              textDecoration="none"
-              _hover={{ textDecoration: "none" }}
-              href={`news/${slug}`}
-            >
-              {t(heading)}
-            </Link>
+            <Link href={`news/${slug}`}>{t(heading)}</Link>
           </Heading>
           <Text as="p" fontSize="md" marginTop="2">
             {t(content)}
