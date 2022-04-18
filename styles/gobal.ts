@@ -52,8 +52,8 @@ a {
   text-decoration: none;
   color: inherit;
   &:hover {
-    text-decoration: underline;
     color: inherit;
+    opacity: 0.8;
   }
 }
 
