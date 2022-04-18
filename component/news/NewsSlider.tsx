@@ -1,12 +1,12 @@
 import {
   Heading,
-  Link,
   Divider,
   Container,
   Stack,
   Button,
   Flex,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import Slider from "react-slick";
 import NewsItem from "./NewsItem";
 

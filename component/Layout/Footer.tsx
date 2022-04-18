@@ -1,9 +1,10 @@
 import {
   Box,
+  Button,
   chakra,
   Container,
   Heading,
-  Link,
+  Link as ChakraLink,
   Stack,
   Text,
   useColorModeValue,
@@ -17,6 +18,7 @@ import CTA from "../CTA";
 import { useTranslation } from "next-i18next";
 import { MENU } from "../../data/header";
 import LocaleSwitcher from "../locale/LocaleSwitcher";
+import Link from "next/link";
 
 const SocialButton = ({
   children,
@@ -126,24 +128,32 @@ export default function SmallCentered() {
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               {t("common:email")}
             </Heading>
-            <Link
-              fontSize="md"
-              target="_blank"
-              href="mailto:info@globalconcepts.cz"
-            >
-              info@globalconcepts.cz
+            <Link href="mailto:info@globalconcepts.cz">
+              <Button
+                variant="link"
+                fontWeight="light"
+                color="blue.600"
+                fontSize="lg"
+                mt={1}
+              >
+                info@globalconcepts.cz
+              </Button>
             </Link>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
               {t("common:website")}
             </Heading>
-            <Link
-              fontSize="md"
-              target="_blank"
-              href="https://globalpreschool.cz"
-            >
-              www.globalpreschool.cz
-            </Link>
+            <ChakraLink href="https://globalpreschool.cz" target="_blank">
+              <Button
+                variant="link"
+                fontWeight="light"
+                color="blue.600"
+                fontSize="lg"
+                mt={1}
+              >
+                www.globalpreschool.cz
+              </Button>
+            </ChakraLink>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>

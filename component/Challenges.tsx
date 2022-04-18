@@ -4,16 +4,17 @@ import {
   Image,
   Flex,
   Heading,
+  Link as ChakraLink,
   Text,
   Stack,
   StackDivider,
   Icon,
   useColorModeValue,
-  Link,
   Button,
 } from "@chakra-ui/react";
 import { ReactElement } from "react";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 interface ChallengesProps {
   text: string;
@@ -77,9 +78,9 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
               {subTitle}
             </Text>
             {logo && (
-              <Link href={logo?.url || ""} target="_blank">
+              <ChakraLink href={logo?.url || ""} target="_blank">
                 <Image src={logo?.src} alt="Logo" height="125" />
-              </Link>
+              </ChakraLink>
             )}
             <Heading>{title}</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
