@@ -1,8 +1,7 @@
-import { Box, Center, Flex, Heading, HStack } from "@chakra-ui/react";
-import Link from "next/link";
 import * as React from "react";
 import Logo from "./Logo";
-import Menu, { MenuToggle } from "./Menu";
+import Menu from "./menu";
+import MenuToggle from "./menu/ToggleMenu";
 import NavBar from "./NavBar";
 
 interface IHeaderProps {}

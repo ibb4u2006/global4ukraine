@@ -3,10 +3,8 @@ import {
   Button,
   chakra,
   Container,
-  createIcon,
   Heading,
-  Icon,
-  Link,
+  Link as ChakraLink,
   Stack,
   Text,
   useColorModeValue,
@@ -17,6 +15,10 @@ import {
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { ReactNode } from "react";
 import CTA from "../CTA";
+import { useTranslation } from "next-i18next";
+import { MENU } from "../../data/header";
+import LocaleSwitcher from "../locale/LocaleSwitcher";
+import Link from "next/link";
 
 const SocialButton = ({
   children,
@@ -52,6 +54,7 @@ const SocialButton = ({
 };
 
 export default function SmallCentered() {
+  const { t } = useTranslation();
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
@@ -65,15 +68,19 @@ export default function SmallCentered() {
         justify={"center"}
         align={"center"}
       >
-        <Heading>How to enrol</Heading>
-        <Text fontSize={"lg"}>
-          Contact us using any of the information below for enrolment
-        </Text>
-        <Stack direction={"row"} spacing={6}>
-          <Link href={"/"}>Home</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/news"}>News</Link>
-          <Link href={"/donate"}>Donate</Link>
+        <Heading>{t("common:footer-title")}</Heading>
+        <Text fontSize={"lg"}>{t("common:footer-description")}</Text>
+        <Stack direction={"row"} spacing={6} alignItems="center">
+          {MENU.map((menu) => {
+            return (
+              <Link key={menu.id} href={menu.to}>
+                {t(menu.label)}
+              </Link>
+            );
+          })}
+        </Stack>
+        <Stack direction={"row"} spacing={6} alignItems="center">
+          <LocaleSwitcher />
         </Stack>
       </Container>
       <Container
@@ -87,66 +94,70 @@ export default function SmallCentered() {
         <Wrap spacing={[6, 16, 14]} justify="center">
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Open Hours
+              {t("common:open-hours-title")}
             </Heading>
-            <Text fontSize="md">8-3 pm (Kids centre)</Text>
+            <Text fontSize="md">{t("common:open-hours-description")}</Text>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Address
+              {t("common:address-title")}
             </Heading>
-            <Text fontSize="md">
-              Nebušická 75, <br />
-              Nebušice, <br />
-              164 00 Praha 6
-            </Text>
+            <Text fontSize="md">{t("common:address-description")}</Text>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Transport buses
+              {t("common:transport-title")}
             </Heading>
             <Text fontSize="md">312, 161</Text>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Tel (EN)
+              {t("common:tel-en")}
             </Heading>
             <Text fontSize="md">+420 739315551 🇺🇸</Text>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Tel (CZ)
+              {t("common:tel-cz")}
             </Heading>
             <Text fontSize="md">+420 737 416 831 🇨🇿</Text>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Tel (UKR)
+              {t("common:tel-ukr")}
             </Heading>
             <Text fontSize="md">+420 608 239 354 🇺🇦</Text>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Email
+              {t("common:email")}
             </Heading>
-            <Link
-              fontSize="md"
-              target="_blank"
-              href="mailto:info@globalconcepts.cz"
-            >
-              info@globalconcepts.cz
+            <Link href="mailto:info@globalconcepts.cz">
+              <Button
+                variant="link"
+                fontWeight="light"
+                color="blue.600"
+                fontSize="lg"
+                mt={1}
+              >
+                info@globalconcepts.cz
+              </Button>
             </Link>
             <br />
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Website
+              {t("common:website")}
             </Heading>
-            <Link
-              fontSize="md"
-              target="_blank"
-              href="https://globalpreschool.cz"
-            >
-              www.globalpreschool.cz
-            </Link>
+            <ChakraLink href="https://globalpreschool.cz" target="_blank">
+              <Button
+                variant="link"
+                fontWeight="light"
+                color="blue.600"
+                fontSize="lg"
+                mt={1}
+              >
+                www.globalpreschool.cz
+              </Button>
+            </ChakraLink>
           </WrapItem>
           <WrapItem flexDirection={"column"}>
             <Heading size={"sm"} color="veryDark" fontSize={"sm"}>
-              Map
+              {t("common:map")}
             </Heading>
             <Box py={3}>
               <iframe
@@ -160,10 +171,10 @@ export default function SmallCentered() {
         </Wrap>
       </Container>
       <CTA
-        arrowText
-        label="Donate Now"
+        arrowText={t("common:button-arrow")}
+        label={t("common:donate-button")}
         labelUrl="/donate"
-        subLabel="Learn more about us"
+        subLabel={t("common:about-button")}
         subLabelUrl="/about"
       />
       <Box
@@ -180,7 +191,7 @@ export default function SmallCentered() {
           justify={{ base: "center", md: "space-between" }}
           align={{ base: "center", md: "center" }}
         >
-          <Text>© 2022 Global Concepts S.R.O. All rights reserved</Text>
+          <Text>{t("common:copyright")}</Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton
               label={"Facebook"}

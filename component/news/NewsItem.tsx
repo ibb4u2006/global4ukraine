@@ -8,6 +8,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import NewsTags from "./NewsTag";
+import { useTranslation } from "next-i18next";
 
 interface NewsItemProps {
   src: string;
@@ -24,6 +25,7 @@ const NewsItem: React.FC<NewsItemProps> = ({
   slug,
   content,
 }) => {
+  const { t } = useTranslation();
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
@@ -61,11 +63,11 @@ const NewsItem: React.FC<NewsItemProps> = ({
               _hover={{ textDecoration: "none" }}
               href={`news/${slug}`}
             >
-              {heading}
+              {t(heading)}
             </Link>
           </Heading>
           <Text as="p" fontSize="md" marginTop="2">
-            {content}
+            {t(content)}
           </Text>
         </Box>
       </Box>

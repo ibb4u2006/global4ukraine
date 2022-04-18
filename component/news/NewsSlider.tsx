@@ -1,12 +1,12 @@
 import {
   Heading,
-  Link,
   Divider,
   Container,
   Stack,
   Button,
   Flex,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import Slider from "react-slick";
 import NewsItem from "./NewsItem";
 
@@ -39,25 +39,32 @@ var settings = {
 };
 
 interface INewsList {
-  data: [];
-  newsBtn?: boolean;
+  newsHeading: string;
+  newsBtnLabel: string;
+  data: {
+    id: number;
+    title: string;
+    img: string;
+    description: string;
+    tags: string[];
+  }[];
 }
 
-const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
+const NewsList: React.FC<INewsList> = ({ newsHeading, newsBtnLabel, data }) => {
   return (
     <Flex bg={"lightGrey"}>
       <Container maxW={"7xl"} py={[10, 20]}>
         <Heading as="h1" mt="5" textAlign="center">
-          Latest News
+          {newsHeading}
         </Heading>
         <Divider my={["5", "10"]} />
         <Slider {...settings}>
           {data.map((post: any) => {
-            const { title, slug, description, heroImage, tags } = post.fields;
+            const { id, title, description, img, tags, slug } = post;
             return (
               <NewsItem
-                key={post.sys.id}
-                src={`https:${heroImage.fields.file.url}`}
+                key={id}
+                src={img}
                 tags={tags}
                 heading={title}
                 slug={slug}
@@ -66,19 +73,21 @@ const NewsList: React.FC<INewsList> = ({ data, newsBtn }) => {
             );
           })}
         </Slider>
-        {newsBtn && (
+        {newsBtnLabel && (
           <Stack direction={"row"} p={10} justify={"center"}>
-            <Button
-              colorScheme={"blue"}
-              size={"lg"}
-              bg={"primary"}
-              rounded={"full"}
-              _hover={{
-                bg: "blue.700",
-              }}
-            >
-              <Link href={"/news"}>More News</Link>
-            </Button>
+            <Link href={"/news"}>
+              <Button
+                colorScheme={"blue"}
+                size={"lg"}
+                bg={"primary"}
+                rounded={"full"}
+                _hover={{
+                  bg: "blue.700",
+                }}
+              >
+                {newsBtnLabel}
+              </Button>
+            </Link>
           </Stack>
         )}
       </Container>
