@@ -1,6 +1,6 @@
 import * as React from "react";
 import Footer from "./Footer";
-import Header from "./header";
+import Header from "./globalHeader";
 
 interface ILayoutProps {}
 

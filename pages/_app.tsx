@@ -1,13 +1,13 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Theme, ThemeProvider } from "../theme";
-import Layout from "../component/layout";
 import GlobalStyle from "../styles/gobal";
 import SimpleReactLightbox from "simple-react-lightbox";
 import { appWithTranslation } from "next-i18next";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { getServerSideTranslations } from "../utils/translations";
+import Layout from "../component/Layout";
 
 export async function getStaticProps({ locale }: any) {
   const translation = await getServerSideTranslations(locale, [
