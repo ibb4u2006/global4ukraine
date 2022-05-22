@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import * as React from "react";
 
@@ -11,7 +11,7 @@ const Logo: React.FunctionComponent<ILogoProps> = (props) => {
   return (
     <Box {...props} cursor={"pointer"}>
       <Link href={"/"}>
-        <Heading color={"white"}>Global for Ukraine</Heading>
+        <Image src="./img/logo.png" alt="logo" width={["100px", "200px"]} />
       </Link>
     </Box>
   );

@@ -47,7 +47,7 @@ interface ISplitWithImage {
   description: string;
   lists?: object[];
   aboutBtnLabel?: string;
-  logo?: { url: string; src: string };
+  logoSRC?: string;
 }
 
 const SplitWithImage: React.FC<ISplitWithImage> = ({
@@ -57,7 +57,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
   description,
   lists,
   aboutBtnLabel,
-  logo,
+  logoSRC,
 }) => {
   const { t } = useTranslation();
   return (
@@ -77,11 +77,7 @@ const SplitWithImage: React.FC<ISplitWithImage> = ({
             >
               {subTitle}
             </Text>
-            {logo && (
-              <ChakraLink href={logo?.url || ""} target="_blank">
-                <Image src={logo?.src} alt="Logo" height="125" />
-              </ChakraLink>
-            )}
+            {logoSRC && <Image src={logoSRC} alt="Logo" width="250px" />}
             <Heading>{title}</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
               {description}

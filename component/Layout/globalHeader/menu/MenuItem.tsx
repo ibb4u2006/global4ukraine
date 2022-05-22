@@ -25,7 +25,7 @@ const MenuItem: React.FunctionComponent<IMenuItemProps> = ({
         p={isButton ? 3 : 0}
         rounded={isButton ? "md" : ""}
         bg={isButton ? "secondary" : ""}
-        color={isButton ? "veryDark" : "whiteAlpha.900"}
+        color="veryDark"
         _hover={
           isButton
             ? {

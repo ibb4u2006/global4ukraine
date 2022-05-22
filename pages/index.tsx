@@ -38,10 +38,7 @@ const Home: NextPage<IHomeProps> = ({ homeNewsList, homeDonorsList }) => {
         classStatus={t("common:class-status")}
       />
       <SplitWithImage
-        logo={{
-          url: "https://globalpreschool.cz/",
-          src: "../img/preschool-logo.png",
-        }}
+        logoSRC="../img/logo.png"
         title={t("home:about-title")}
         subTitle={t("common:about-menu")}
         image="../img/about-global.jpeg"
