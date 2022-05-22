@@ -14,8 +14,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({
       justify="space-around"
       wrap="wrap"
       w="100%"
-      p={8}
-      bg={"primary"}
+      p={3}
       {...props}
     >
       {children}

@@ -25,11 +25,7 @@ const Partners: React.FunctionComponent<IPartnersProps> = ({
         <Stack spacing={0} pb={10}>
           <Heading>{partnerHeading}</Heading>
         </Stack>
-        <Wrap
-          direction={"row"}
-          spacing={{ base: 4, lg: 10 }}
-          justify={"center"}
-        >
+        <Wrap direction={"row"} spacing={{ base: 4, lg: 8 }} justify={"center"}>
           {partnerData.map((partner, index) => {
             return (
               <WrapItem key={index}>
