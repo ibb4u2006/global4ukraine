@@ -25,4 +25,14 @@ export const PARTNERS = [
     img: "/img/partners/child_action.png",
     url: "https://www.childactionlanka.org",
   },
+  {
+    id: 6,
+    img: "/img/partners/cod.png",
+    url: "https://www.committeeforopendemocracy.org",
+  },
+  {
+    id: 7,
+    img: "/img/partners/help_ukraine.png",
+    url: "https://helpukraine22.org",
+  },
 ];
